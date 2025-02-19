@@ -1,0 +1,19 @@
+[package]
+name = "eldora-ski-api"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1", features = ["full"], optional = true }
+reqwest = { version = "0.12.12", features = ["json"] }
+serde = { version = "1.0", features = ["derive"] }
+chrono = "0.4"
+prettytable-rs = { version = "0.10", optional = true }
+
+[features]
+bin = ["display", "tokio"]
+display = ["prettytable-rs"]
+
+[[bin]]
+name = "eldora_ski"
+required-features = ["bin"]
